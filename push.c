@@ -2,6 +2,7 @@
 
 void		pa(t_elem *la, t_elem *lb)
 //maybe l1 l2 cause pa & pb is the same with swap lb la
+// also change ptr from bot of the 2 stack
 	t_elem	*ptr;
 
 	ptr = la->topa;
