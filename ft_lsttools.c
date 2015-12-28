@@ -1,5 +1,22 @@
 #include "ft_pushswap.h"
 
+int				ps_lsttest(t_bords *a, t_bords *b)
+{
+	t_elem		*ptr;
+
+	if (b)//test if b is not null
+		return (0);
+	ptr = a->bota;
+	while (ptr->next->nb != a->bota->nb)//test if a is sort
+	{
+		if (ptr->nb < ptr->next->nb)//transitivite
+			return (0);
+		ptr = ptr->next;
+	}
+	return (1);
+}
+
+
 t_bords			ps_lstinit(void)
 {
 	t_bords		*bords;
