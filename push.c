@@ -11,6 +11,7 @@ void		pa(t_elem *la, t_elem *lb)
 	lb->topb->next = ptr;
 	lb->topb = tmp;
 	lb->topb->next = lb->botb;
+	la->bota->prev = la->topa;
 	la->size--;
 	lb->size++;
 
