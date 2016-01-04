@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:03:39 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:31:33 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void			ft_exit(void)
 
 void			ft_exit_free(t_dlst *head)
 {
-	t_pslst		*clear;
+	t_node		*clear;
 
 	while (!dlst_empty(head))
 	{
-		clear = (t_pslst *)(head->next);
+		clear = (t_node *)head->next;
 		dlst_del_entry(head->next);
 		free(clear);
 	}
@@ -33,28 +33,27 @@ void			ft_exit_free(t_dlst *head)
 
 static void		init_head(t_info *info)
 {
-	dlst_init(info->heada);
-	ft_putstr("test sortie");
-	dlst_init(info->headb);
+	dlst_init(&info->heada);
+	dlst_init(&info->headb);
 	UNSET(info->opt, OPT_ALL);
 }
 
 int				main(int ac, char **av)
 {
 	t_info		info;
-	t_pslst		*tmp;
+	t_node		*tmp;
 	int			i;
 
 	init_head(&info);
 	i = parse_opt(av, &info) + 1;
+	ft_putstr("test");
 	test_arg(ac, i, av);
 	while (i < ac)
 	{
-		if (!(tmp = (t_pslst *)malloc(sizeof(t_pslst))))
-			ft_exit_free(info.heada);
-		dlst_init(tmp->dlst);
+		if (!(tmp = (t_node *)malloc(sizeof(t_node))))
+			ft_exit_free(&info.heada);
 		tmp->nb = ft_atoi(av[i]);
-		dlst_add_tail(tmp->dlst, info.heada);
+		dlst_add_tail(&tmp->dlst, &info.heada);
 		i++;
 	}
 //	ft_pushswap(&info);
