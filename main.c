@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 15:17:11 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 15:46:01 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int				main(int ac, char **av)
 	int			i;
 	int			opt;
 
-	test_arg(ac. av);
+	i = parse_opt(av, &opt) + 1;
+	test_arg(ac, i, av);
 	dlst_init(heada);
 	dlst_init(headb);
-	i = parse_opt(av, &opt);
 	while (i < ac)
 	{
 		if (!tmp = (t_pslst *)malloc(sizeof(t_pslst)))
