@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 17:48:39 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:19:36 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@
 # define OPT_V		(1u << 1)
 # define OPT_ALL	(OPT_V | OPT_C)
 
-typedef struct 		s_pslst
+typedef struct 		s_node
 {
-	t_dlst			*dlst;
+	t_dlst			dlst;
 	int				nb;
-}					t_pslst;
+}					t_node;
 
 typedef struct		s_info
 {
-	t_dlst			*heada;
-	t_dlst			*headb;
+	t_dlst			heada;
+	t_dlst			headb;
 	int				opt;
 }					t_info;
 
