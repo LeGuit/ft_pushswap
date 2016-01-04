@@ -6,13 +6,13 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:10:26 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 15:33:25 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:16:45 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long	ft_atoi(const char *str)
+long long	ft_atoll(const char *str)
 {
 	int		sign;
 	int		res;
