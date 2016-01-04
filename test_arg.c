@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:36:44 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 17:26:26 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:49:45 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ static int		test_is_num(char *arg)
 	int			i;
 
 	i = 0;
-	if (arg[i] != '-' || arg[i] != '+' || !ft_isdigit(arg[i]))
+	if (!ft_strchr("-+0123456789", arg[i]))
 		return (0);
 	if (arg[i] == '-' || arg[i] == '+')
 		i = 1;
 	while (arg[i])
 	{
+		ft_putchar(arg[i]);
 		if (!ft_isdigit(arg[i]))
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -59,6 +61,7 @@ void			test_arg(int ac, int index, char **av)
 	{
 		if (!test_is_num(av[index]))
 			ft_exit();
+		ft_putendl("YOU");
 		if (!test_int(av[index]))
 			ft_exit();
 		if (!test_dupli(index, ac, av))

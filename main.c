@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:33:29 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:44:11 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int				main(int ac, char **av)
 		ft_exit();
 	init_head(&info);
 	i = parse_opt(av, &info) + 1;
-	ft_putstr("test sortie");
 	test_arg(ac, i, av);
+	ft_putstr("test sortie");
 	while (i < ac)
 	{
 		if (!(tmp = (t_node *)malloc(sizeof(t_node))))
