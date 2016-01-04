@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:31:33 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:33:29 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int				main(int ac, char **av)
 	t_node		*tmp;
 	int			i;
 
+	if (ac < 2)
+		ft_exit();
 	init_head(&info);
 	i = parse_opt(av, &info) + 1;
-	ft_putstr("test");
+	ft_putstr("test sortie");
 	test_arg(ac, i, av);
 	while (i < ac)
 	{
