@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:36:44 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 16:10:30 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:26:26 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int		test_int(char *arg)
 	llarg = ft_atoll(arg);
 	if (llarg > 2147483647 || llarg < -2147483648)
 		return (0);
+	return (1);
 }
 
 static int		test_dupli(int index, int ac, char **av)
@@ -63,4 +64,5 @@ void			test_arg(int ac, int index, char **av)
 		if (!test_dupli(index, ac, av))
 			ft_exit();
 	}
+	return ;
 }

@@ -6,26 +6,25 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:17:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 15:36:35 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:27:45 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
 
-int			parse_opt(int ac, char **av, int *opt)
+int			parse_opt(char **av, t_info *info)
 {
-	int		i;
+	size_t	i;
 
-	UNSET(*opt, OPT_ALL);
 	if (av[1][0] != '-' && (av[1][1] == 'c' || av[1][1] == 'v'))
 		return (0);
 	i = 1;
 	while (i < ft_strlen(av[1]) - 1)
 	{
 		if (av[1][i] == 'c')
-			SET(*opt, OPT_C);
+			SET(info->opt, OPT_C);
 		else if (av[1][i] == 'v')
-			SET(*opt, OPT_V)
+			SET(info->opt, OPT_V);
 		else
 			ft_exit();
 		i++;

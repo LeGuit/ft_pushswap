@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 15:58:57 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:03:39 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,48 @@
 void			ft_exit(void)
 {
 	ft_putstr_fd("Error\n", 2);
-	exit();
+	exit(0);
 }
 
-void			ft_exit_free(t_dlst *heada)
+void			ft_exit_free(t_dlst *head)
 {
 	t_pslst		*clear;
 
 	while (!dlst_empty(head))
 	{
-		clear = head->next;
+		clear = (t_pslst *)(head->next);
 		dlst_del_entry(head->next);
 		free(clear);
 	}
 	ft_exit();
 }
 
+static void		init_head(t_info *info)
+{
+	dlst_init(info->heada);
+	ft_putstr("test sortie");
+	dlst_init(info->headb);
+	UNSET(info->opt, OPT_ALL);
+}
+
 int				main(int ac, char **av)
 {
-	t_dlst		*heada;
-	t_dlst		*headb;
+	t_info		info;
 	t_pslst		*tmp;
 	int			i;
-	int			opt;
 
-	i = parse_opt(av, &opt) + 1;
+	init_head(&info);
+	i = parse_opt(av, &info) + 1;
 	test_arg(ac, i, av);
-	dlst_init(heada);
-	dlst_init(headb);
 	while (i < ac)
 	{
-		if (!tmp = (t_pslst *)malloc(sizeof(t_pslst)))
-			ft_exit_free(heada);
+		if (!(tmp = (t_pslst *)malloc(sizeof(t_pslst))))
+			ft_exit_free(info.heada);
+		dlst_init(tmp->dlst);
 		tmp->nb = ft_atoi(av[i]);
-		dlst_add_tail(tmp, heada);
+		dlst_add_tail(tmp->dlst, info.heada);
 		i++;
 	}
-	ft_pushswap(heada, headb, opt);
+//	ft_pushswap(&info);
 	return (0);
 }
