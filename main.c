@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 20:23:15 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:31:53 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,5 @@ int				main(int ac, char **av)
 		i++;
 	}
 	print_res(&info);
-//	print_dlst(&info);
-//	ft_pushswap(&info);
 	return (0);
 }

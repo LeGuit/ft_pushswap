@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 16:48:42 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/01/04 20:17:20 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/01/04 20:41:43 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HEAD =	ft_pushswap.h
 
 SRCS =	test_arg.c \
 		ps_parse.c \
-		print_dlst.c \
+		ps_print.c \
 		main.c
 
 OBJS =	$(SRCS:.c=.o)

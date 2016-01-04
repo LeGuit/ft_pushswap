@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_dlst.c                                       :+:      :+:    :+:   */
+/*   ps_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 20:10:35 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 20:30:47 by gwoodwar         ###   ########.fr       */
+/*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
+/*   Updated: 2016/01/04 20:41:24 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
-/*
-void		print_dlst(t_info *info)
-{
-	t_node		*tmp;
-	t_dlst		*it;
 
-	it = info->heada.next;
-	while (it != &info->heada)
-	{
-		tmp = C_NODE(t_node, it);
-		ft_putnbr(tmp->nb);
-		if (it->next != &info->heada)
-			ft_putchar(' ');
-		it = it->next;
-	}
-}
-*/
 void		print_dlst(t_dlst *list)
 {
 	t_node		*tmp;
