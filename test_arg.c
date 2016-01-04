@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:36:44 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 15:50:31 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 16:10:30 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,42 @@
 
 static int		test_int(char *arg)
 {
+	long long	llarg;
 
+	llarg = ft_atoll(arg);
+	if (llarg > 2147483647 || llarg < -2147483648)
+		return (0);
 }
 
 static int		test_dupli(int index, int ac, char **av)
 {
+	int			dupli;
 
+	dupli = ft_atoi(av[index]);
+	index++;
+	while (index < ac)
+	{
+		if (ft_atoi(av[index]) == dupli)
+			return (0);
+	}
+	return (1);
 }
 
-static int		test_is_num()
+static int		test_is_num(char *arg)
 {
+	int			i;
+
+	i = 0;
+	if (arg[i] != '-' || arg[i] != '+' || !ft_isdigit(arg[i]))
+		return (0);
+	if (arg[i] == '-' || arg[i] == '+')
+		i = 1;
+	while (arg[i])
+	{
+		if (!ft_isdigit(arg[i]))
+			return (0);
+	}
+	return (1);
 }
 
 void			test_arg(int ac, int index, char **av)
