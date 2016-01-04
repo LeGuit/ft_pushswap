@@ -1,13 +1,13 @@
 #include "ft_pushswap.h"
 
-int				ps_lsttest(t_bords *a, t_bords *b)
+int				ps_lsttest(t_bords *ba, t_bords *bb)
 {
 	t_elem		*ptr;
 
-	if (b)//test if b is not null
+	if (bb)//test if b is not null
 		return (0);
-	ptr = a->bota;
-	while (ptr->next->nb != a->bota->nb)//test if a is sort
+	ptr = ba->bot;
+	while (ptr->next->nb != ba->bot->nb)//test if a is sort
 	{
 		if (ptr->nb < ptr->next->nb)//transitivite
 			return (0);
@@ -23,12 +23,9 @@ t_bords			ps_lstinit(void)
 
 	if (!bords = (t_bords)malloc(sizeof(*bords)))
 		ft_exit();
-	bords->topa = NULL;
-	bords->bota = NULL;
-	bords->topb = NULL;
-	bords->botb = NULL;
-	bords->sizea = 0;
-	bords->sizeb = 0;
+	bords->top = NULL;
+	bords->bot = NULL;
+	bords->size = 0;
 	return (bords);
 }
 
@@ -39,21 +36,21 @@ void			ps_addlast(t_bords *bords, int nb)
 	if (!new = (t_elem)malloc(sizeof(*t_elem)) || !bords)
 		ft_exit();
 	new->nb = nb;
-	if (bords->topa == NULL)
+	if (bords->top == NULL)
 	{
-		bords->topa = new;
-		bords->bota = new;
+		bords->top = new;
+		bords->bot = new;
 		new->prev = new;
 	}
 	else
 	{
-		bords->topa->next = new;
-		new->prev = bords->topa
-		bords->topa = new;
-		bords->bota = new;
+		bords->top->next = new;
+		new->prev = bords->top
+		bords->top = new;
+		bords->bot = new;
 	}
-	new->next = bords->bota;
-	bords->sizea++;
+	new->next = bords->bot;
+	bords->size++;
 }
 
 void			ps_printlst(t_bords *bords)

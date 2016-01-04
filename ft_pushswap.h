@@ -21,12 +21,9 @@ typedef struct 				s_elem
 
 typedef struct 				s_bords
 {
-	s_elem					topa;
-	s_elem					bota;
-	s_elem					topb;
-	s_elem					botb;
-	int						sizea;
-	int						sizeb;
+	s_elem					top;
+	s_elem					bot;
+	int						size;
 	int						opt;
 
 };
