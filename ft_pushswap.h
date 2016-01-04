@@ -6,20 +6,20 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:29:16 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:25:51 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		_FT_PUSHSWAP_H
-# define 	_FT_PUSHSWAP_H
-
+#ifndef _FT_PUSHSWAP_H
+# define _FT_PUSHSWAP_H
 # include "libft/includes/libft.h"
 
 # define OPT_C		(1u << 0)
 # define OPT_V		(1u << 1)
 # define OPT_ALL	(OPT_V | OPT_C)
+# define C_NODE(type, ptr)	((type *)ptr)
 
-typedef struct 		s_node
+typedef struct		s_node
 {
 	t_dlst			dlst;
 	int				nb;
@@ -36,5 +36,6 @@ void				ft_exit(void);
 void				ft_exit_free(t_dlst *head);
 int					parse_opt(char **av, t_info *info);
 void				test_arg(int ac, int index, char **av);
-
+void				print_dlst(t_dlst *list);
+void				print_res(t_info *info);
 #endif
