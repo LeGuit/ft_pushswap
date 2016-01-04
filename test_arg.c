@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:36:44 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:49:45 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 19:08:50 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int		test_int(char *arg)
 	long long	llarg;
 
 	llarg = ft_atoll(arg);
-	if (llarg > 2147483647 || llarg < -2147483648)
-		return (0);
-	return (1);
+	if (llarg <= 2147483647 && llarg >= -2147483648)
+		return (1);
+	return (0);
 }
 
 static int		test_dupli(int index, int ac, char **av)
@@ -32,6 +32,7 @@ static int		test_dupli(int index, int ac, char **av)
 	{
 		if (ft_atoi(av[index]) == dupli)
 			return (0);
+		index++;
 	}
 	return (1);
 }
@@ -47,7 +48,6 @@ static int		test_is_num(char *arg)
 		i = 1;
 	while (arg[i])
 	{
-		ft_putchar(arg[i]);
 		if (!ft_isdigit(arg[i]))
 			return (0);
 		i++;
@@ -61,11 +61,11 @@ void			test_arg(int ac, int index, char **av)
 	{
 		if (!test_is_num(av[index]))
 			ft_exit();
-		ft_putendl("YOU");
 		if (!test_int(av[index]))
 			ft_exit();
 		if (!test_dupli(index, ac, av))
 			ft_exit();
+		index++;
 	}
 	return ;
 }

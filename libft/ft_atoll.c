@@ -6,16 +6,16 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 12:10:26 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 17:16:45 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 19:03:51 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-long long	ft_atoll(const char *str)
+long int		ft_atoll(const char *str)
 {
-	int		sign;
-	int		res;
+	int			sign;
+	long int	res;
 
 	while (*str == '\n' || *str == '\v' || *str == '\r' || *str == ' ' ||
 			*str == '\f' || *str == '\t')
