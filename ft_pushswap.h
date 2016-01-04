@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 20:25:51 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:42:35 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ void				ft_exit(void);
 void				ft_exit_free(t_dlst *head);
 int					parse_opt(char **av, t_info *info);
 void				test_arg(int ac, int index, char **av);
-void				print_dlst(t_dlst *list);
 void				print_res(t_info *info);
 #endif

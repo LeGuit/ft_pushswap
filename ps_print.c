@@ -6,13 +6,13 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 20:41:24 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 20:43:07 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
 
-void		print_dlst(t_dlst *list)
+static void		print_dlst(t_dlst *list)
 {
 	t_node		*tmp;
 	t_dlst		*it;
@@ -29,7 +29,7 @@ void		print_dlst(t_dlst *list)
 	ft_putchar('\n');
 }
 
-void		print_res(t_info *info)
+void			print_res(t_info *info)
 {
 	ft_putstr("List A : ");
 	print_dlst(&info->heada);
