@@ -6,11 +6,12 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/05 13:01:42 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/05 13:02:24 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
+
 int				test_lst(t_info *info)
 {
 	t_dlst		*it;
