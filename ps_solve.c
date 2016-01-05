@@ -6,35 +6,45 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/05 12:01:39 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/05 13:01:42 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
-
-static int		test_lst(t_dlst *la, t_dlst *lb)
+int				test_lst(t_info *info)
 {
-	t_node		*nb1;
-	t_node		*nb2;
 	t_dlst		*it;
+	t_node		*cur;
+	t_node		*nex;
+	int			cnt;
 
-	if (!dlst_empty(lb))
-		return (0);
-	it = la->next;
-	while (it != la)
+	it = info->heada.next;
+	cnt = 0;
+	while (it != &info->heada)
 	{
-		nb1 = C_NODE(t_node, it);
-		nb2 = C_NODE(t_node, it->next);
-		if (nb1 > nb2)
-			return (0);
+		cur = C_NODE(t_node, it);
+		nex = C_NODE(t_node, it->next);
+		ft_putnbr(cur->nb);
+		ft_putchar('>');
+		ft_putnbr(nex->nb);
+		ft_putchar('\n');
+		if (cur->nb > nex->nb && cnt > (info->size / 2))
+			return (1);
+		else if (cur->nb > nex->nb)
+			return (2);
 		it = it->next;
+		cnt++;
 	}
-	return (1);
+	return (0);
 }
 
 void			ft_pushswap(t_info *info)
 {
-	if (test_lst(&info->heada, &info->headb))
+	if (test_lst(info) == 0)
 		print_res(info);
-		//print_solution(&info);
+//	if (test_lst(info) == 1)
+//		algorot(&info);
+//	else
+//		algopush(&info);
+//	ft_pushswap(&info);
 }
