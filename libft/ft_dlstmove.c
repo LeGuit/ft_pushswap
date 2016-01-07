@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:28:15 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 12:11:01 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 12:42:19 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ void		dlst_rotate(t_dlst *head)
 	if (!dlst_empty(head))
 	{
 		top = head->next;
-		dlst_move_tail(top, head);
+		head->next = top->next;
+		head->next->prev = head;
+		head->prev->next = top;
+		top->prev = head->prev;
+		head->prev = top;
+		top->next = head;
 	}
 }
 
