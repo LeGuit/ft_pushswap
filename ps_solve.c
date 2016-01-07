@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 12:55:49 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 13:48:23 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int				test_lst(t_info *info)
 		ft_putnbr(cur->nb);
 		ft_putchar('>');
 		ft_putnbr(nex->nb);
-		ft_putchar('\n');
+		ft_putchar(' ');
 		if (cur->nb > nex->nb)
 			return (1);
 	/*	else if (cur->nb > nex->nb)
