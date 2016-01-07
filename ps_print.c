@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 20:43:07 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 12:13:00 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void			print_res(t_info *info)
 {
 	ft_putstr("List A : ");
 	print_dlst(&info->heada);
-	if (!dlst_empty(&info->headb))
-	{
+//	if (!dlst_empty(&info->headb))
+//	{
 		ft_putstr("List B : ");
 		print_dlst(&info->headb);
-	}
+//	}
 }

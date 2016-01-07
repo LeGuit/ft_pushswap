@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 11:57:33 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 12:55:49 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				test_lst(t_info *info)
 
 	it = info->heada.next;
 	cnt = 0;
-	while (it != &info->heada)
+	while (it->next != &info->heada)
 	{
 		cur = C_NODE(t_node, it);
 		nex = C_NODE(t_node, it->next);

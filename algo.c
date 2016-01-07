@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 12:05:03 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 13:07:56 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,9 @@ static void		test_rot(t_info *info, t_node *cura, t_node *curb, char *stres)
 	{
 		if (cura->nb > G_NODE(t_node, heada.prev))
 		{
-			ft_putstr("brot\n");
-		print_res(info);
 			dlst_rotate(&info->heada);
-			ft_putstr("arot\n");
-		print_res(info);
 			add_stres(stres, "ra ");
+			ft_putstr(stres);
 		}
 		if (info->sizeb >= 2)
 		{
@@ -60,6 +57,8 @@ static void		test_rot(t_info *info, t_node *cura, t_node *curb, char *stres)
 
 static void		test_swap(t_info *info, t_node *cura, t_node *curb, char *stres)
 {
+	ft_putstr("get in swap");
+		print_res(info);
 	if (info->sizeb >= 2)
 	{
 		if (cura->nb > G_NODE(t_node, heada.next->next)
@@ -75,6 +74,9 @@ static void		test_swap(t_info *info, t_node *cura, t_node *curb, char *stres)
 	{
 		if (cura->nb > G_NODE(t_node, heada.next->next))
 		{
+			ft_putnbr(cura->nb);
+			ft_putnbr(G_NODE(t_node, heada.next->next));
+		ft_putstr("test");
 			dlst_swap(&info->heada);
 			add_stres(stres, "sa ");
 		}
@@ -84,6 +86,8 @@ static void		test_swap(t_info *info, t_node *cura, t_node *curb, char *stres)
 			add_stres(stres, "sb ");
 		}
 	}
+		print_res(info);
+		ft_exit();
 	return ;
 }
 
@@ -103,6 +107,7 @@ void			algo(t_info *info, char *stres)
 		test_rot(info, cura, curb, stres);
 		print_res(info);
 		test_swap(info, cura, curb, stres);
+	ft_putstr("test out lst tri");
 		print_res(info);
 		ft_putstr("test");
 		dlst_move_head(&info->heada, &info->headb);
