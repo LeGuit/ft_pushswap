@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 16:48:42 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/01/04 20:48:48 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/01/07 11:04:52 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS =	test_arg.c \
 		ps_print.c \
 		ps_exit.c \
 		ps_solve.c \
+		algo.c \
 		main.c
 
 OBJS =	$(SRCS:.c=.o)

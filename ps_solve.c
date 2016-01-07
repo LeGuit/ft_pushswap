@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/05 13:02:24 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 11:57:33 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int				test_lst(t_info *info)
 		ft_putchar('>');
 		ft_putnbr(nex->nb);
 		ft_putchar('\n');
-		if (cur->nb > nex->nb && cnt > (info->size / 2))
+		if (cur->nb > nex->nb)
 			return (1);
-		else if (cur->nb > nex->nb)
-			return (2);
+	/*	else if (cur->nb > nex->nb)
+			return (2);*/
 		it = it->next;
 		cnt++;
 	}
@@ -41,8 +41,14 @@ int				test_lst(t_info *info)
 
 void			ft_pushswap(t_info *info)
 {
+	char		*stres;
+
+	stres = ft_strdup("\0");
 	if (test_lst(info) == 0)
 		print_res(info);
+	algo(info, stres);
+	ft_putstr("test sortie algo");
+	ft_putstr(stres);
 //	if (test_lst(info) == 1)
 //		algorot(&info);
 //	else
