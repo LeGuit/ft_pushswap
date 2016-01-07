@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 13:48:23 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 14:37:44 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,8 @@ int				test_lst(t_info *info)
 	{
 		cur = C_NODE(t_node, it);
 		nex = C_NODE(t_node, it->next);
-		ft_putnbr(cur->nb);
-		ft_putchar('>');
-		ft_putnbr(nex->nb);
-		ft_putchar(' ');
 		if (cur->nb > nex->nb)
 			return (1);
-	/*	else if (cur->nb > nex->nb)
-			return (2);*/
 		it = it->next;
 		cnt++;
 	}

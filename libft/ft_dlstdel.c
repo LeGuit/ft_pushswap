@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:07:51 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 13:17:26 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 14:18:08 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void		dlst_del(t_dlst *prev, t_dlst *next)
 {
 	next->prev = prev;
+	prev->next = next;
 }
 
 void		dlst_del_entry(t_dlst *entry)

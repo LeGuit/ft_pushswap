@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 13:49:43 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 15:09:57 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,70 +27,65 @@ void			add_stres(char *stres, char *ope)
 
 static int		test_rot(t_info *info, t_node *cura, t_node *curb, char *stres)
 {
-	if (info->sizeb >= 2)
+	(void)stres;
+	if (cura->nb > G_NODE(t_node, heada.prev)
+			&& curb->nb < G_NODE(t_node, headb.prev)
+			&& info->sizeb >= 2)
 	{
-		if (cura->nb > G_NODE(t_node, heada.prev)
-				&& curb->nb > G_NODE(t_node, headb.prev))
-		{
-			dlst_rotate(&info->heada);
-			dlst_rotate(&info->headb);
-			add_stres(stres, "rr ");
-		}
+		dlst_rotate(&info->heada);
+		dlst_rotate(&info->headb);
+		//add_stres(stres, "rr ");
 		return (1);
 	}
 	if (cura->nb > G_NODE(t_node, heada.prev)
-			|| curb->nb > G_NODE(t_node, headb.prev))
+			|| curb->nb < G_NODE(t_node, headb.prev))
 	{
 		if (cura->nb > G_NODE(t_node, heada.prev))
 		{
 			dlst_rotate(&info->heada);
-			add_stres(stres, "ra ");
+			//add_stres(stres, "ra ");
 			ft_putstr(stres);
+			return (1);
 		}
-		if (info->sizeb >= 2)
+		if (curb->nb < G_NODE(t_node, headb.next->next) && info->sizeb >= 2)
 		{
 			dlst_rotate(&info->headb);
-			add_stres(stres, "rb ");
+			//add_stres(stres, "rb ");
+			return (1);
 		}
-		return (1);
 	}
 	return (0);
 }
 
 static int		test_swap(t_info *info, t_node *cura, t_node *curb, char *stres)
 {
-	ft_putstr("get in swap");
-		print_res(info);
-	if (info->sizeb >= 2)
+	(void)stres;
+	ft_putnbr(info->sizeb);
+	if (cura->nb > G_NODE(t_node, heada.next->next)
+			&& curb->nb < G_NODE(t_node, headb.next->next)
+			&& info->sizeb >= 2)
 	{
-		if (cura->nb > G_NODE(t_node, heada.next->next)
-				&& curb->nb > G_NODE(t_node, headb.next->next))
-		{
-			dlst_swap(&info->heada);
-			dlst_swap(&info->headb);
-			add_stres(stres, "ss ");
-		}
+		dlst_swap(&info->heada);
+		dlst_swap(&info->headb);
+		//add_stres(stres, "ss ");
 		return (1);
 	}
 	if (cura->nb > G_NODE(t_node, heada.next->next)
-			|| curb->nb > G_NODE(t_node, headb.next->next))
+			|| curb->nb < G_NODE(t_node, headb.next->next))
 	{
 		if (cura->nb > G_NODE(t_node, heada.next->next))
 		{
-		ft_putstr("test");
 			dlst_swap(&info->heada);
-		print_res(info);
-			add_stres(stres, "sa ");
+			//add_stres(stres, "sa ");
+			return (1);
 		}
-		if (info->sizeb >= 2)
+		if (curb->nb < G_NODE(t_node, headb.next->next) && info->sizeb >= 2)
 		{
 			dlst_swap(&info->headb);
-			add_stres(stres, "sb ");
+			//add_stres(stres, "sb ");
+			return (1);
 		}
-		return (1);
 	}
-		print_res(info);
-		ft_exit();
 	return (0);
 }
 
@@ -98,30 +93,28 @@ void			algo(t_info *info, char *stres)
 {
 	t_node		*cura;
 	t_node		*curb;
-	int			sizeb;
 
-	sizeb = 0;
-	ft_putstr("inalgo\n");
-	while (test_lst(info) != 0)
+	(void)stres;
+	while (test_lst(info))
 	{
-	cura = C_NODE(t_node, info->heada.next);
-	curb = C_NODE(t_node, info->headb.next);
+		cura = C_NODE(t_node, info->heada.next);
+		curb = C_NODE(t_node, info->headb.next);
 		print_res(info);
 		if (test_rot(info, cura, curb, stres))
 			continue ;
-		print_res(info);
 		if (test_swap(info, cura, curb, stres))
 			continue ;
-	ft_putstr("test out lst tri");
-		print_res(info);
-		ft_putstr("test");
-		dlst_move_head(&info->heada, &info->headb);
-		add_stres(stres, "pb ");
-		sizeb++;
+		dlst_move_head(info->heada.next, &info->headb);
+		info->sizeb++;
 	}
-	while (dlst_empty(&info->headb))
+	print_res(info);
+	while (!dlst_empty(&info->headb))
 	{
-		dlst_move_head(&info->headb, &info->heada);
-		add_stres(stres, "pa ");
+		dlst_move_head(info->headb.next, &info->heada);
+		//add_stres(stres, "pa ");
+		info->sizeb--;
 	}
+	print_res(info);
+	if (test_lst(info))
+		algo(info, stres);
 }
