@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 14:06:42 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 14:10:47 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,22 +97,20 @@ void			algo(t_info *info)
 			print_res(info);
 		cura = C_NODE(t_node, info->heada.next);
 		curb = C_NODE(t_node, info->headb.next);
-		print_res(info);
 		if (test_rot(info, cura, curb))
 			continue ;
 		if (test_swap(info, cura, curb))
 			continue ;
 		dlst_move_head(info->heada.next, &info->headb);
+		add_stres(info, " pb");
 		info->sizeb++;
 	}
-	print_res(info);
 	while (!dlst_empty(&info->headb))
 	{
 		dlst_move_head(info->headb.next, &info->heada);
 		add_stres(info, " pa");
 		info->sizeb--;
 	}
-	print_res(info);
 	if (test_lst(info))
 		algo(info);
 }
