@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 19:10:52 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 19:26:26 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void			algo(t_info *info)
 		px(info, " pb");
 		info->sizeb++;
 	}
+	if (GET(info->opt, OPT_V) && *(info->stres) && !dlst_empty(&info->headb))
+		print_res(info);
 	while (!dlst_empty(&info->headb))
 	{
 		px(info, " pa");
