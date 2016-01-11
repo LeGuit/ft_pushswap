@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 17:25:45 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 19:16:24 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int				test_lst(t_info *info)
 
 void			ft_pushswap(t_info *info)
 {
-
 	if (test_lst(info) == 0)
 		print_res(info);
 	algo(info);

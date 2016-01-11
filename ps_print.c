@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 18:24:11 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 19:13:40 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,19 @@ static void		print_dlst(t_dlst *list)
 	while (it != list)
 	{
 		tmp = C_NODE(t_node, it);
-		ft_putnbr(tmp->nb);
+		if (tmp->color != 0)
+		{
+			if (tmp->color == 1)
+				ft_putstr(C_RED);
+			if (tmp->color == 2)
+				ft_putstr(C_YEL);
+			if (tmp->color == 3)
+				ft_putstr(C_GRE);
+			ft_putnbr(tmp->nb);
+			ft_putstr(C_RES);
+		}
+		else
+			ft_putnbr(tmp->nb);
 		if (it->next != list)
 			ft_putchar(' ');
 		it = it->next;

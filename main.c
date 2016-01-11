@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 13:57:47 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 19:07:52 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void		init_head(t_info *info)
 	UNSET(info->opt, OPT_ALL);
 	info->sizeb = 0;
 	info->stres = ft_strdup("\0");
+	unset_color(&info->heada, &info->headb);
 }
 
 int				main(int ac, char **av)

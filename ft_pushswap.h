@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 18:17:08 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 19:12:52 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # define OPT_V		(1u << 1)
 # define OPT_ALL	(OPT_V | OPT_C)
 # define C_NODE(type, ptr)	((type *)ptr)
+# define C_RED		"\033[31m"
+# define C_YEL		"\033[33m"
+# define C_GRE		"\033[32m"
+# define C_RES		"\033[0m"
 
 typedef struct		s_node
 {
