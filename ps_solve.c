@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 14:37:44 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 14:03:40 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,9 @@ int				test_lst(t_info *info)
 
 void			ft_pushswap(t_info *info)
 {
-	char		*stres;
 
-	stres = ft_strdup("\0");
 	if (test_lst(info) == 0)
 		print_res(info);
-	algo(info, stres);
-	ft_putstr("test sortie algo");
-	ft_putstr(stres);
-//	if (test_lst(info) == 1)
-//		algorot(&info);
-//	else
-//		algopush(&info);
-//	ft_pushswap(&info);
+	algo(info);
+	ft_putstr(info->stres + 1);
 }

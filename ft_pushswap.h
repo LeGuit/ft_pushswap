@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 11:30:38 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 14:00:52 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_info
 	int				sizea;
 	int				sizeb;
 	int				opt;
+	char			*stres;
 }					t_info;
 
 void				ft_exit(void);
@@ -41,6 +42,6 @@ void				test_arg(int ac, int index, char **av);
 void				print_res(t_info *info);
 void				ft_pushswap(t_info *info);
 int					test_lst(t_info *info);
-void				add_stres(char *stres, char *ope);
-void				algo(t_info *info, char *stres);
+void				add_stres(t_info *info, char *ope);
+void				algo(t_info *info);
 #endif
