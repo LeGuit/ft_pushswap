@@ -21,6 +21,15 @@ int			parse_opt(char **av, t_info *info)
 	i = 1;
 	while (i < ft_strlen(av[1]))
 	{
+		if (!ft_isdigit(av[1][i]))
+			break ;
+		i++;
+	}
+	if (i == ft_strlen(av[1]))
+		return (0);
+	i = 1;
+	while (i < ft_strlen(av[1]))
+	{
 		if (av[1][i] == 'c')
 			SET(info->opt, OPT_C);
 		else if (av[1][i] == 'v')
