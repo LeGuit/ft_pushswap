@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 14:10:47 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 18:28:07 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ static int		test_rot(t_info *info, t_node *cura, t_node *curb)
 			&& curb->nb < G_NODE(t_node, headb.prev)
 			&& info->sizeb >= 2)
 	{
-		dlst_rotate(&info->heada);
-		dlst_rotate(&info->headb);
-		add_stres(info, " rr");
+		rr(info);
 		return (1);
 	}
 	if (cura->nb > G_NODE(t_node, heada.prev)
@@ -42,14 +40,12 @@ static int		test_rot(t_info *info, t_node *cura, t_node *curb)
 	{
 		if (cura->nb > G_NODE(t_node, heada.prev))
 		{
-			dlst_rotate(&info->heada);
-			add_stres(info, " ra");
+			rx(info, " ra");
 			return (1);
 		}
 		if (curb->nb < G_NODE(t_node, headb.next->next) && info->sizeb >= 2)
 		{
-			dlst_rotate(&info->headb);
-			add_stres(info, " rb");
+			rx(info, " rb");
 			return (1);
 		}
 	}
@@ -62,9 +58,7 @@ static int		test_swap(t_info *info, t_node *cura, t_node *curb)
 			&& curb->nb < G_NODE(t_node, headb.next->next)
 			&& info->sizeb >= 2)
 	{
-		dlst_swap(&info->heada);
-		dlst_swap(&info->headb);
-		add_stres(info, " ss");
+		ss(info);
 		return (1);
 	}
 	if (cura->nb > G_NODE(t_node, heada.next->next)
@@ -72,14 +66,12 @@ static int		test_swap(t_info *info, t_node *cura, t_node *curb)
 	{
 		if (cura->nb > G_NODE(t_node, heada.next->next))
 		{
-			dlst_swap(&info->heada);
-			add_stres(info, " sa");
+			sx(info, " sa");
 			return (1);
 		}
 		if (curb->nb < G_NODE(t_node, headb.next->next) && info->sizeb >= 2)
 		{
-			dlst_swap(&info->headb);
-			add_stres(info, " sb");
+			sx(info, " sb");
 			return (1);
 		}
 	}
@@ -93,7 +85,7 @@ void			algo(t_info *info)
 
 	while (test_lst(info))
 	{
-		if (GET(info->opt,OPT_V))
+		if (GET(info->opt, OPT_V))
 			print_res(info);
 		cura = C_NODE(t_node, info->heada.next);
 		curb = C_NODE(t_node, info->headb.next);
@@ -101,14 +93,12 @@ void			algo(t_info *info)
 			continue ;
 		if (test_swap(info, cura, curb))
 			continue ;
-		dlst_move_head(info->heada.next, &info->headb);
-		add_stres(info, " pb");
+		px(info, " pb");
 		info->sizeb++;
 	}
 	while (!dlst_empty(&info->headb))
 	{
-		dlst_move_head(info->headb.next, &info->heada);
-		add_stres(info, " pa");
+		px(info, " pa");
 		info->sizeb--;
 	}
 	if (test_lst(info))

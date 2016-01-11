@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 14:24:10 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:25:45 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void			ft_pushswap(t_info *info)
 	if (test_lst(info) == 0)
 		print_res(info);
 	algo(info);
-	ft_putendl(info->stres + 1);
+	if (GET(info->opt, OPT_V))
+		print_res(info);
+	else
+		ft_putendl(info->stres + 1);
 }

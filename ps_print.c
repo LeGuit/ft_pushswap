@@ -6,11 +6,32 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 14:09:14 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 18:24:11 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
+
+void			unset_color(t_dlst *lsta, t_dlst *lstb)
+{
+	t_node		*tmp;
+	t_dlst		*it;
+
+	it = lsta->next;
+	while (it != lsta)
+	{
+		tmp = C_NODE(t_node, it);
+		tmp->color = 0;
+		it = it->next;
+	}
+	it = lstb->next;
+	while (it != lstb)
+	{
+		tmp = C_NODE(t_node, it);
+		tmp->color = 0;
+		it = it->next;
+	}
+}
 
 static void		print_dlst(t_dlst *list)
 {
