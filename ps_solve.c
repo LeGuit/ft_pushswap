@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 16:07:59 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:44:34 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ void			ft_pushswap_big(t_info *info)
 		return ;
 	}
 	algo_big(info);
-	if (GET(info->opt, OPT_V))
-		print_res(info);
 	if (GET(info->opt, OPT_N))
 		ft_printf("\nNumber of operations: %lld", info->nbope);
 	if (!GET(info->opt, OPT_V) || GET(info->opt, OPT_N))

@@ -6,13 +6,13 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 13:58:51 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 18:11:48 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:43:59 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
 #define G_NODE(type, get) C_NODE(type, info->get)->nb
-
+/*
 static void		rot_in_b(t_info *info)
 {
 	if (info->sizeb < 2)
@@ -57,7 +57,7 @@ static void		push_in_b(t_info *info)
 			return ;
 	}
 }
-
+*/
 static void		rot_in_a(t_info *info, int count)
 {
 	while (G_NODE(t_node, heada.next) != info->min)
@@ -103,6 +103,23 @@ void			algo_big(t_info *info)
 	while (!dlst_empty(&info->heada))
 	{
 		get_min(info);
+		px(info, "pb ");
+		if (GET(info->opt, OPT_V))
+			print_res(info);
+	}
+	while (!dlst_empty(&info->headb))
+	{
+		px(info, "pa ");
+		if (GET(info->opt, OPT_V))
+			print_res(info);
+	}
+}
+/*
+void			algo_big(t_info *info)
+{
+	while (!dlst_empty(&info->heada))
+	{
+		get_min(info);
 		if (dlst_empty(&info->headb))
 		{
 			info->minb = info->min;
@@ -124,4 +141,4 @@ void			algo_big(t_info *info)
 		if (GET(info->opt, OPT_V))
 			print_res(info);
 	}
-}
+}*/
