@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 11:31:36 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 13:47:37 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int				main(int ac, char **av)
 	int			i;
 
 	if (ac < 2)
-		ft_exit();
+		ft_exit(1);
 	init_head(&info);
 	i = parse_opt(av, &info) + 1;
 	info.sizea = ac - i;
@@ -42,6 +42,6 @@ int				main(int ac, char **av)
 		dlst_add_tail(&tmp->dlst, &info.heada);
 		i++;
 	}
-	ft_pushswap(&info);
+	ft_pushswap_big(&info);
 	return (0);
 }

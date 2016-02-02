@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:36:44 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 19:08:50 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 12:11:43 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ void			test_arg(int ac, int index, char **av)
 	while (index < ac)
 	{
 		if (!test_is_num(av[index]))
-			ft_exit();
+			ft_exit(0);
 		if (!test_int(av[index]))
-			ft_exit();
+			ft_exit(0);
 		if (!test_dupli(index, ac, av))
-			ft_exit();
+			ft_exit(0);
 		index++;
 	}
 	return ;

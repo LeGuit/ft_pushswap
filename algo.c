@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 11:31:23 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 11:56:30 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,19 @@ void			algo(t_info *info)
 
 	while (test_lst(info))
 	{
-		if (GET(info->opt, OPT_V)/* && *(info->stres) != '\0'*/)
+		if (GET(info->opt, OPT_V))
 			print_res(info);
 		cura = C_NODE(t_node, info->heada.next);
 		curb = C_NODE(t_node, info->headb.next);
-		if (test_rot(info, cura, curb))
-			continue ;
-		if (test_swap(info, cura, curb))
+		if (test_rot(info, cura, curb) || test_swap(info, cura, curb))
 			continue ;
 		px(info, "pb ");
 		info->sizeb++;
 	}
-	if (GET(info->opt, OPT_V) && !dlst_empty(&info->headb))
-		print_res(info);
 	while (!dlst_empty(&info->headb))
 	{
+		if (GET(info->opt, OPT_V) && !dlst_empty(&info->headb))
+			print_res(info);
 		px(info, "pa ");
 		info->sizeb--;
 	}
