@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 16:48:42 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/02/02 14:01:20 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/02/02 14:09:48 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS =	test_arg.c \
 		ps_print.c \
 		ps_exit.c \
 		ps_solve.c \
+		ps_solve_big.c \
 		algo.c \
 		ope_lst.c \
 		main.c

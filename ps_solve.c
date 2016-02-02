@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 14:07:14 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 14:10:22 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,4 @@ void			ft_pushswap(t_info *info)
 		ft_printf("\nNumber of operations: %lld", info->nbope);
 	if (!GET(info->opt, OPT_V) || GET(info->opt, OPT_N))
 		ft_putchar('\n');
-}
-
-void			ft_pushswap_big(t_info *info)
-{
-	t_dlst		*it;
-	t_node		*tmp;
-
-	while (!dlst_empty(&info->heada))
-	{
-		it = info->heada.next;
-		info->min = C_NODE(t_node, it)->nb;
-		while (it != &info->heada)
-		{
-			tmp = C_NODE(t_node, it);
-			info->min = MIN(info->min, tmp->nb);
-			it = it->next;
-		}
-		while (C_NODE(t_node, info->heada.next)->nb != info->min)
-		{
-		   rx(info, "ra ");
-		   it = it->next;
-		}
-		px(info, "pb ");	
-	}
-	while (!dlst_empty(&info->headb))
-		px(info, "pa ");
 }
