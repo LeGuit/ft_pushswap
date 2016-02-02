@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 15:00:29 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:10:05 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		print_dlst(t_dlst *list)
 		else if (tmp->color == 3)
 			ft_putstr(C_GRE);
 		else if (tmp->color == 4)
-			ft_putstr(C_BLU);
+			ft_putstr(C_MAG);
 		ft_putnbr(tmp->nb);
 		ft_putstr(C_RES);
 		if (it->next != list)

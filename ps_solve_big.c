@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 13:58:51 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 16:48:43 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:11:48 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 
 static void		rot_in_b(t_info *info)
 {
-	//	ft_putstr("YO");
-	//	ft_printf("Heada: %d\nHeadb: %d\nTailb: %d\n", G_NODE(t_node, heada.next), G_NODE(t_node, headb.next), G_NODE(t_node, headb.prev));
-//		ft_exit(1);
 	if (info->sizeb < 2)
 		return ;
-	while (G_NODE(t_node, heada.next) < G_NODE(t_node, headb.next))
+	if (G_NODE(t_node, headb.prev) == info->minb)
 	{
-		ft_putstr("BITCH");
+			rrx(info, "rrb ");
+			if (GET(info->opt, OPT_V))
+				print_res(info);
+	}
+	while (G_NODE(t_node, heada.next) < G_NODE(t_node, headb.next)
+			|| G_NODE(t_node, heada.next) > G_NODE(t_node, headb.prev))
+	{
 		rrx(info, "rrb ");
 		if (GET(info->opt, OPT_V))
 			print_res(info);
+		if (G_NODE(t_node, headb.prev) == info->minb)
+			break ;
 	}
 }
 
@@ -41,13 +46,13 @@ static void		push_in_b(t_info *info)
 	}
 	while (G_NODE(t_node, heada.next) > G_NODE(t_node, headb.next))
 	{
-		if (G_NODE(t_node, heada.next) > G_NODE(t_node, headb.prev))
-			break ;
 		px(info, "pb ");
 		info->sizea--;
 		info->sizeb++;
 		if (GET(info->opt, OPT_V))
 			print_res(info);
+		if (G_NODE(t_node, heada.next) > G_NODE(t_node, headb.prev))
+			break ;
 		if(dlst_empty(&info->heada))
 			return ;
 	}
@@ -100,11 +105,18 @@ void			algo_big(t_info *info)
 		get_min(info);
 		if (dlst_empty(&info->headb))
 		{
+			info->minb = info->min;
 			push_in_b(info);
 			continue ;
 		}
 		rot_in_b(info);
 		push_in_b(info);
+	}
+	while (G_NODE(t_node, headb.prev) != info->minb)
+	{	
+		rrx(info, "rrb ");
+		if (GET(info->opt, OPT_V))
+			print_res(info);
 	}
 	while (!dlst_empty(&info->headb))
 	{
