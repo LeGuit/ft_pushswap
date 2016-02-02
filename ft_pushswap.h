@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 13:50:06 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 16:07:11 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ void				ft_pushswap(t_info *info);
 void				ft_pushswap_big(t_info *info);
 int					test_lst(t_info *info);
 void				algo(t_info *info);
+void				algo_big(t_info *info);
 void				unset_color(t_dlst *lsta, t_dlst *lstb);
 void				rr(t_info *info);
 void				rx(t_info *info, char *ope);
 void				ss(t_info *info);
 void				sx(t_info *info, char *ope);
 void				px(t_info *info, char *ope);
+void				rrx(t_info *info, char *ope);
 #endif

@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 14:54:50 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 15:07:44 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 16:03:16 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			rrx(t_info *info, char *ope)
 	ft_putstr(ope);
 	if (!ft_strcmp(ope, "rra "))
 	{
-		dlst_irrotate(&info->heada);
+		dlst_rrotate(&info->heada);
 		if (GET(info->opt, OPT_C))
 		{
 			unset_color(&info->heada, &info->headb);
