@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 13:58:51 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 19:14:39 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 19:29:55 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,47 @@ static void		rot_in_b(t_info *info)
 			print_res(info);
 		if (G_NODE(t_node, headb.prev) == info->minb)
 			break ;
+	}
+}
+
+static void		get_min(t_dlst *head, int min, int count)
+{
+	t_node		*tmp;
+	t_dlst		*it;
+
+	it = head.next;
+	min = C_NODE(t_node, it)->nb;
+	while (it != head)
+	{
+		tmp = C_NODE(t_node, it);
+		min = MIN(min, tmp->nb);
+		it = it->next;
+	}
+	it = head.next;
+	count = 0;
+	while (it != head)
+	{
+		tmp = C_NODE(t_node, it);
+		if (min == tmp->nb)
+			break ;
+		count++;
+		it = it->next;
+	}
+}
+
+static void		rot_in_lsts(t_info *info)
+{
+	int			count;
+
+	count = (info->counta < info->countb ? info->
+	while (G_NODE(t_node, heada.next) != info->mina)
+	{
+		if (count < (info->sizea / 2))
+			rx(info, "ra ");
+		else
+			rrx(info, "rra ");
+		if (GET(info->opt, OPT_V))
+			print_res(info);
 	}
 }
 

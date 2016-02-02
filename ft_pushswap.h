@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 19:12:54 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 19:22:52 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct		s_info
 	t_dlst			headb;
 	int				mina;
 	int				minb;
+//	int				counta;
+//	int				countb;
 	int				sizea;
 	int				sizeb;
 	int				opt;
