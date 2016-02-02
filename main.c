@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:16:20 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 13:47:37 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 14:06:51 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ int				main(int ac, char **av)
 		dlst_add_tail(&tmp->dlst, &info.heada);
 		i++;
 	}
-	ft_pushswap_big(&info);
+	if (ac < 15)
+		ft_pushswap(&info);
+	else
+		ft_pushswap_big(&info);
 	return (0);
 }

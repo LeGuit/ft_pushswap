@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 13:47:57 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 14:07:14 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,25 @@ void			ft_pushswap(t_info *info)
 void			ft_pushswap_big(t_info *info)
 {
 	t_dlst		*it;
-	int			min;
 	t_node		*tmp;
 
 	while (!dlst_empty(&info->heada))
 	{
-		min = -2147483648;
 		it = info->heada.next;
+		info->min = C_NODE(t_node, it)->nb;
 		while (it != &info->heada)
 		{
 			tmp = C_NODE(t_node, it);
-			min = MIN(min, tmp->nb);
+			info->min = MIN(info->min, tmp->nb);
 			it = it->next;
 		}
-		it = info->heada.next;
-		while (C_NODE(t_node, it)->nb != min)
+		while (C_NODE(t_node, info->heada.next)->nb != info->min)
 		{
 		   rx(info, "ra ");
 		   it = it->next;
 		}
 		px(info, "pb ");	
 	}
-	print_res(info);
+	while (!dlst_empty(&info->headb))
+		px(info, "pa ");
 }
