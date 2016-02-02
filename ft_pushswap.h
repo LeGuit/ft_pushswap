@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 19:12:52 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 10:10:14 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@
 
 # define OPT_C		(1u << 0)
 # define OPT_V		(1u << 1)
-# define OPT_ALL	(OPT_V | OPT_C)
-# define C_NODE(type, ptr)	((type *)ptr)
+# define OPT_N		(1u << 2)
+# define OPT_ALL	(OPT_V | OPT_C | OPT_N)
 # define C_RED		"\033[31m"
 # define C_YEL		"\033[33m"
 # define C_GRE		"\033[32m"
-# define C_RES		"\033[0m"
 
 typedef struct		s_node
 {
@@ -38,6 +37,7 @@ typedef struct		s_info
 	int				sizeb;
 	int				opt;
 	char			*stres;
+	size_t			nbope;
 }					t_info;
 
 void				ft_exit(void);
@@ -55,4 +55,5 @@ void				rx(t_info *info, char *ope);
 void				ss(t_info *info);
 void				sx(t_info *info, char *ope);
 void				px(t_info *info, char *ope);
+void				ps_nbope(t_info *info);
 #endif

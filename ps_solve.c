@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 19:16:24 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 10:13:57 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,12 @@ void			ft_pushswap(t_info *info)
 	if (GET(info->opt, OPT_V))
 		print_res(info);
 	else
+	{
 		ft_putendl(info->stres + 1);
+		if (GET(info->opt, OPT_N))
+		{
+			ps_nbope(info);
+			ft_printf("Number of operations: %lld\n", info->nbope);
+		}
+	}
 }

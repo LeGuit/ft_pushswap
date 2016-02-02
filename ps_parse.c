@@ -6,15 +6,34 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:17:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/04 18:43:16 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 10:00:51 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_pushswap.h"
 
-int			parse_opt(char **av, t_info *info)
+static void		get_opt(char *av, t_info *info)
 {
-	size_t	i;
+	size_t		i;
+
+	i = 1;
+	while (i < ft_strlen(&av[0]))
+	{
+		if (av[i] == 'c')
+			SET(info->opt, OPT_C);
+		else if (av[i] == 'v')
+			SET(info->opt, OPT_V);
+		else if (av[i] == 'n')
+			SET(info->opt, OPT_N);
+		else
+			ft_exit();
+		i++;
+	}
+}
+
+int				parse_opt(char **av, t_info *info)
+{
+	size_t		i;
 
 	if (av[1][0] != '-')
 		return (0);
@@ -27,7 +46,8 @@ int			parse_opt(char **av, t_info *info)
 	}
 	if (i == ft_strlen(av[1]))
 		return (0);
-	i = 1;
+	get_opt(av[1], info);
+/*	i = 1;
 	while (i < ft_strlen(av[1]))
 	{
 		if (av[1][i] == 'c')
@@ -37,6 +57,6 @@ int			parse_opt(char **av, t_info *info)
 		else
 			ft_exit();
 		i++;
-	}
+	}*/
 	return (1);
 }
