@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:21:03 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 10:10:14 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 11:32:01 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ typedef struct		s_info
 	int				sizea;
 	int				sizeb;
 	int				opt;
-	char			*stres;
 	size_t			nbope;
 }					t_info;
 
@@ -47,7 +46,6 @@ void				test_arg(int ac, int index, char **av);
 void				print_res(t_info *info);
 void				ft_pushswap(t_info *info);
 int					test_lst(t_info *info);
-void				add_stres(t_info *info, char *ope);
 void				algo(t_info *info);
 void				unset_color(t_dlst *lsta, t_dlst *lstb);
 void				rr(t_info *info);
@@ -55,5 +53,4 @@ void				rx(t_info *info, char *ope);
 void				ss(t_info *info);
 void				sx(t_info *info, char *ope);
 void				px(t_info *info, char *ope);
-void				ps_nbope(t_info *info);
 #endif

@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 10:49:47 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 11:41:56 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,37 +62,16 @@ static void		print_dlst(t_dlst *list)
 	ft_putchar('\n');
 }
 
-void			ps_nbope(t_info *info)
-{
-	char		*tmp;
-
-	info->nbope = 0;
-	tmp = info->stres;
-	while (*tmp != '\0')
-	{
-		if (*tmp == ' ')
-			info->nbope++;
-		tmp++;
-	}
-}
-
 void			print_res(t_info *info)
 {
-	if (*(info)->stres != '\0')
+	if (info->nbope)
 	{
-		ft_putstr("List A : ");
+		ft_putstr("\nList A : ");
 		print_dlst(&info->heada);
-		if (!dlst_empty(&info->headb))
-		{
-			ft_putstr("List B : ");
-			print_dlst(&info->headb);
-		}
-		if (*(info->stres) != '\0')
-			ft_putendl(info->stres + 1);
-		if (GET(info->opt, OPT_N))
-		{
-			ps_nbope(info);
-			ft_printf("Number of operations: %lld\n", info->nbope);
-		}
+	}
+	if (!dlst_empty(&info->headb))
+	{
+		ft_putstr("List B : ");
+		print_dlst(&info->headb);
 	}
 }

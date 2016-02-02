@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 17:39:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 19:14:23 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 11:37:36 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			rr(t_info *info)
 {
 	dlst_rotate(&info->heada);
 	dlst_rotate(&info->headb);
-	add_stres(info, " rr");
+	ft_putstr("rr ");
 	if (GET(info->opt, OPT_C))
 	{
 		unset_color(&info->heada, &info->headb);
@@ -25,12 +25,13 @@ void			rr(t_info *info)
 		C_NODE(t_node, info->headb.next)->color = 3;
 		C_NODE(t_node, info->headb.next)->color = 3;
 	}
+	info->nbope++;
 }
 
 void			rx(t_info *info, char *ope)
 {
-	add_stres(info, ope);
-	if (!ft_strcmp(ope, " ra"))
+	ft_putstr(ope);
+	if (!ft_strcmp(ope, "ra "))
 	{
 		dlst_rotate(&info->heada);
 		if (GET(info->opt, OPT_C))
@@ -50,13 +51,14 @@ void			rx(t_info *info, char *ope)
 			C_NODE(t_node, info->headb.prev)->color = 3;
 		}
 	}
+	info->nbope++;
 }
 
 void			ss(t_info *info)
 {
 	dlst_swap(&info->heada);
 	dlst_swap(&info->headb);
-	add_stres(info, " ss");
+	ft_putstr("ss ");
 	if (GET(info->opt, OPT_C))
 	{
 		unset_color(&info->heada, &info->headb);
@@ -65,12 +67,13 @@ void			ss(t_info *info)
 		C_NODE(t_node, info->headb.next)->color = 2;
 		C_NODE(t_node, info->headb.next->next)->color = 2;
 	}
+	info->nbope++;
 }
 
 void			sx(t_info *info, char *ope)
 {
-	add_stres(info, ope);
-	if (!ft_strcmp(ope, " sa"))
+	ft_putstr(ope);
+	if (!ft_strcmp(ope, "sa "))
 	{
 		dlst_swap(&info->heada);
 		if (GET(info->opt, OPT_C))
@@ -90,12 +93,13 @@ void			sx(t_info *info, char *ope)
 			C_NODE(t_node, info->headb.next->next)->color = 2;
 		}
 	}
+	info->nbope++;
 }
 
 void			px(t_info *info, char *ope)
 {
-	add_stres(info, ope);
-	if (!ft_strcmp(ope, " pa"))
+	ft_putstr(ope);
+	if (!ft_strcmp(ope, "pa "))
 	{
 		dlst_move_head(info->headb.next, &info->heada);
 		if (GET(info->opt, OPT_C))
@@ -113,4 +117,5 @@ void			px(t_info *info, char *ope)
 			C_NODE(t_node, info->headb.next)->color = 1;
 		}
 	}
+	info->nbope++;
 }
