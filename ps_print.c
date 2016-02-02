@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:41:21 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 10:10:11 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 10:49:47 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,4 @@ void			print_res(t_info *info)
 			ft_printf("Number of operations: %lld\n", info->nbope);
 		}
 	}
-	else
-		ft_printf("List already sorted!");
 }

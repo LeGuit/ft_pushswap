@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 20:48:34 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 10:13:57 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/02 10:50:11 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ int				test_lst(t_info *info)
 void			ft_pushswap(t_info *info)
 {
 	if (test_lst(info) == 0)
-		print_res(info);
+	{
+		ft_printf("List already sorted!\n");
+		return ;
+	}
 	algo(info);
 	if (GET(info->opt, OPT_V))
 		print_res(info);
