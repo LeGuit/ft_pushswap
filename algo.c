@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:24:33 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 11:56:30 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/03 15:28:31 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void			algo(t_info *info)
 		if (GET(info->opt, OPT_V) && !dlst_empty(&info->headb))
 			print_res(info);
 		px(info, "pa ");
-		info->sizeb--;
-	}
 	if (test_lst(info))
 		algo(info);
+		info->sizeb--;
+	}
 }
