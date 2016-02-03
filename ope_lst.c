@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 17:39:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/02/02 11:37:36 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/02/03 13:48:37 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			rr(t_info *info)
 		C_NODE(t_node, info->heada.next)->color = 3;
 		C_NODE(t_node, info->heada.prev)->color = 3;
 		C_NODE(t_node, info->headb.next)->color = 3;
-		C_NODE(t_node, info->headb.next)->color = 3;
+		C_NODE(t_node, info->headb.prev)->color = 3;
 	}
 	info->nbope++;
 }
